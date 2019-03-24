@@ -1,0 +1,37 @@
+[user]
+        name = Daniel Barreto
+        email = daniel.barreto.n@gmail.com
+	signingkey = 6276E2C1CB4235C7
+
+[alias]
+        ci = commit
+        co = checkout
+        br = branch
+        st = status -sb
+        lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+        unstage = reset HEAD
+        contributors = shortlog -sn
+
+[color "status"]
+        changed = yellow
+        added = green
+        untracked = red
+[color]
+        diff = auto
+        status = auto
+        branch = auto
+        ui = auto
+
+[core]
+        excludesfile = ~/.gitignore
+        autocrlf = input
+        editor = emacsclient -t
+
+[help]
+        autocorrect = 1
+
+[push]
+        default = tracking
+
+[diff]
+	mnemonicprefix = true
