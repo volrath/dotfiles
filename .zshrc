@@ -6,9 +6,11 @@ DISABLE_AUTO_TITLE='true'
 DISABLE_AUTO_UPDATE=true
 
 plugins=(
-    command-not-found colored-man-pages colorize debian django docker
-    docker-compose history-substring-search git git-extras jump pass
-    python pj virtualenv supervisor systemadmin tmux tmuxinator
+    archlinux command-not-found colored-man-pages colorize debian
+    django docker docker-compose history-substring-search git
+    git-extras jump pass python pj virtualenv supervisor systemadmin
+    tmux tmuxinator
+
 )
 
 if [[ '$TERM' == 'dumb' ]]
@@ -90,37 +92,20 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias reload!='. ~/.zshrc'
 
-# Environment
+# Environment & Path
 # ------------------------------------------------------------------------------
 
-export LANG='en_US.UTF-8'
-export TERM='screen-256color'
-export EMAIL='Daniel Barreto <daniel@barreto.tech>'
-export EDITOR='emacsclient -nw'
-export FCEDIT='emacsclient -nw'
-export VISUAL='emacsclient -c'
-export DJANGO_COLORS='dark'
-export PROJECT_HOME=${HOME}/projects
-
-
-# Path
-#-------------------------------------------------------------------------------
-
-export ANDROID_HOME=${HOME}/.local/share/Android/SDK
-export PATH=${PATH}:${HOME}/.cask/bin
-export PATH=${PATH}:${HOME}/.rvm/bin
-export PATH=${PATH}:${HOME}/.npm-global/bin
-export PATH=${PATH}:${HOME}/.local/bin
-export PATH=${PATH}:${ANDROID_HOME}/tools
-export PATH=${PATH}:${ANDROID_HOME}/platform-tools
+[ -f "$HOME/.profile" ] && source ~/.profile
 
 
 # Random Tools
 #-------------------------------------------------------------------------------
 
-export NVM_DIR='$HOME/.nvm'
-[ -s '$NVM_DIR/nvm.sh' ] && \. '$NVM_DIR/nvm.sh'  # This loads nvm
-[ -s '$NVM_DIR/bash_completion' ] && \. '$NVM_DIR/bash_completion'  # This loads nvm bash_completion
+[ -z "$NVM_DIR" ] && export NVM_DIR=${HOME}/.nvm
+export NVM_SOURCE="/usr/share/nvm"                     # The AUR package installs it here.
+[ -s "$NVM_SOURCE/nvm.sh" ] && . "$NVM_SOURCE/nvm.sh"  # Load NVM
+[ -s "$NVM_SOURCE/bash_completion" ] && . "$NVM_SOURCE/bash_completion"
+[ -s "$NVM_SOURCE/install-nvm-exec" ] && . "$NVM_SOURCE/install-nvm-exec"
 
 # added by travis gem
 [ -f /home/volrath/.travis/travis.sh ] && source /home/volrath/.travis/travis.sh

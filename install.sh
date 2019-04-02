@@ -107,6 +107,8 @@ function link_dotfiles () {
 }
 
 
+# Mostly to be used in computers where I don't need (or want) to install my own
+# `.emacs.d` configuration.
 function install_prelude() {
     if [ ! -d "${HOME}/.emacs.d" ]; then
         wget --no-check-certificate https://github.com/bbatsov/prelude/raw/master/utils/installer.sh -O - | sh;
