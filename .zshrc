@@ -66,10 +66,10 @@ prompt_virtualenv() {  # Virtualenv: current working virtualenv
     fi
 }
 
-if [[ $HOSTNAME -ne garuda ]]; then
-    PROMPT='%B%F{red}[%n@%M]%b%F{yellow}$(prompt_virtualenv) %F{green}%2c%F{blue} [%f '
+if [ $HOST = garuda ] || [ $HOST = antares ]; then
+    PROMPT='%F{blue}[%F{cyan}%M%F{blue}]%F{yellow}$(prompt_virtualenv) %F{green}%2c%F{blue} [%f '
 else
-    PROMPT='%F{yellow}$(prompt_virtualenv) %F{green}%2c%F{blue} [%f '
+    PROMPT='%B%F{red}[%n@%M]%b%F{yellow}$(prompt_virtualenv) %F{green}%2c%F{blue} [%f '
 fi
 RPROMPT='$(git_prompt_info) %F{blue}] %F{green}%T %F{yellow}>%f'
 
