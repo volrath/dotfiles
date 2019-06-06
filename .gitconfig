@@ -1,6 +1,6 @@
 [user]
-        name = Daniel Barreto
-        email = daniel.barreto.n@gmail.com
+	name = Daniel Barreto
+	email = daniel@barreto.tech
 	signingkey = 6276E2C1CB4235C7
 
 [alias]
