@@ -10,7 +10,6 @@ export VISUAL='emacsclient -c'
 export BROWSER='firefox-nightly'
 export DJANGO_COLORS='dark'
 export PROJECT_HOME=${HOME}/projects
-export SUDO_ASKPASS="$HOME/.scripts/tools/dmenupass"
 
 
 export ANDROID_HOME=${HOME}/.local/share/Android/SDK
@@ -21,4 +20,8 @@ export PATH=${PATH}:${HOME}/.local/bin
 export PATH=${PATH}:${ANDROID_HOME}/tools
 export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 
-export PATH="$(du $HOME/.scripts/ | cut -f2 | tr '\n' ':')$PATH"
+
+if [ -d "$HOME/.scripts" ]; then
+    export SUDO_ASKPASS="$HOME/.scripts/tools/dmenupass"
+    export PATH="$(du $HOME/.scripts/ | cut -f2 | tr '\n' ':')$PATH"
+fi
