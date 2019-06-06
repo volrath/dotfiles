@@ -9,3 +9,6 @@ alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 
 [ -f ~/.profile ] && source "$HOME/.profile"
+
+# added by travis gem
+[ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh

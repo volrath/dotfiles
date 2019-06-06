@@ -108,7 +108,7 @@ export NVM_SOURCE="/usr/share/nvm"                     # The AUR package install
 [ -s "$NVM_SOURCE/install-nvm-exec" ] && . "$NVM_SOURCE/install-nvm-exec"
 
 # added by travis gem
-[ -f /home/volrath/.travis/travis.sh ] && source /home/volrath/.travis/travis.sh
+[ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
 
 
 # Local Configuration
