@@ -101,8 +101,10 @@ function link_dotfiles () {
 
   dotfiles=$(find `pwd` -maxdepth 1 -name '.*' -not -name '.git')
   for src in $dotfiles; do
-    dst="$HOME/$(basename "${src}")"
-    link_file "$src" "$dst"
+      if [ "$src" != $(pwd) ]; then
+          dst="$HOME/$(basename "${src}")"
+          link_file "$src" "$dst"
+      fi
   done
 }
 
