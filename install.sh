@@ -6,6 +6,12 @@
 
 set -euo pipefail
 
+if [ "${1+x}" == "-O" ]; then
+    overwrite_all=true;
+else
+    overwrite_all=false;
+fi
+
 function info () {
     printf "  [ \033[00;34m..\033[0m ] $1\n"
 }
@@ -97,7 +103,7 @@ function link_file () {
 function link_dotfiles () {
   info 'Installing dotfiles'
 
-  local overwrite_all=false backup_all=false skip_all=false
+  local backup_all=false skip_all=false
 
   dotfiles=$(find `pwd` -maxdepth 1 -name '.*' -not -name '.git')
   for src in $dotfiles; do
