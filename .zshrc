@@ -113,3 +113,6 @@ if [[ -a ~/.localrc ]]
 then
     source ~/.localrc
 fi
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/bin/terraform terraform

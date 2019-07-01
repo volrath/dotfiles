@@ -12,3 +12,5 @@ PS1='[\u@\h \W]\$ '
 
 # added by travis gem
 [ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
+
+complete -C /usr/bin/terraform terraform
