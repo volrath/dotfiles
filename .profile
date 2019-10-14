@@ -11,8 +11,7 @@ export BROWSER='firefox-nightly'
 export DJANGO_COLORS='dark'
 export PROJECT_HOME=${HOME}/projects
 
-
-export ANDROID_HOME=${HOME}/.local/share/Android/SDK
+export ANDROID_HOME=/opt/android-sdk
 export PATH=${PATH}:${HOME}/.cask/bin
 export PATH=${PATH}:${HOME}/.rvm/bin
 export PATH=${PATH}:${HOME}/.npm-global/bin
