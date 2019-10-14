@@ -35,3 +35,5 @@
 
 [diff]
 	mnemonicprefix = true
+[commit]
+	gpgsign = true
