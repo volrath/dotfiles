@@ -7,9 +7,9 @@
 set -euo pipefail
 
 if [ "${1+x}" == "-O" ]; then
-    overwrite_all=true;
-else
     overwrite_all=false;
+else
+    overwrite_all=true;
 fi
 
 function info () {
