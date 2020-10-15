@@ -28,4 +28,8 @@
   ;; - see https://github.com/bhauman/rebel-readline
   ;; - start a Rebel Readline REPL:
   :rebel {:extra-deps {com.bhauman/rebel-readline {:mvn/version "RELEASE"}}
-          :main-opts ["-m" "rebel-readline.main"]}}}
+          :main-opts ["-m" "rebel-readline.main"]}
+  :graph {:extra-deps {org.clojure/tools.deps.graph {:git/url "https://github.com/clojure/tools.deps.graph.git"
+                                                     :sha "b9d3359b901a1014f60982d68c0673d55b4b1670"
+                                                     :tag "tools.deps.graph-0.1.14"}}
+          :main-opts ["-m" "clojure.tools.deps.graph"]}}}
