@@ -129,9 +129,17 @@ function install_oh_my_zsh() {
     fi
 }
 
+function install_clojure_jet() {
+    if [ ! -d "${HOME}/.local/bin" ]; then
+        mkdir -p "${HOME}/.local/bin"
+    fi
+    bash <(curl -s https://raw.githubusercontent.com/borkdude/jet/master/install) ${HOME}/.local/bin
+}
+
 
 install_prelude
 install_oh_my_zsh
+install_clojure_jet
 link_dotfiles
 
 echo ''
