@@ -16,6 +16,7 @@ export PATH=${PATH}:${HOME}/.cask/bin
 export PATH=${PATH}:${HOME}/.rvm/bin
 export PATH=${PATH}:${HOME}/.npm-global/bin
 export PATH=${PATH}:${HOME}/.local/bin
+export PATH=${PATH}:${HOME}/.yarn/bin
 export PATH=${PATH}:${ANDROID_HOME}/tools
 export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 
