@@ -1,35 +1,42 @@
 ;; see https://github.com/seancorfield/dot-clojure
 {:aliases
  {;; pull in specific versions of Clojure:
-  :1.8 {:override-deps {org.clojure/clojure {:mvn/version "1.8.0"}}}
-  :1.9 {:override-deps {org.clojure/clojure {:mvn/version "1.9.0"}}}
-  :1.10 {:override-deps {org.clojure/clojure {:mvn/version "1.10.0"}}}
+  :1.8    {:override-deps {org.clojure/clojure {:mvn/version "1.8.0"}}}
+  :1.9    {:override-deps {org.clojure/clojure {:mvn/version "1.9.0"}}}
+  :1.10   {:override-deps {org.clojure/clojure {:mvn/version "1.10.0"}}}
   :master {:override-deps {org.clojure/clojure {:mvn/version "1.11.0-master-SNAPSHOT"}}}
 
   ;; - see https://github.com/hugoduncan/criterium/
   ;; - (require '[criterium.core :refer [bench]])
   ;; - (bench (your-expression))
-  :bench {:extra-deps {criterium {:mvn/version "RELEASE"}}}
+  :bench    {:extra-deps {criterium/criterium {:mvn/version "RELEASE"}}}
   ;; - see https://github.com/clojure-goes-fast/clj-memory-meter
   ;; - (require '[clj-memory-meter.core :as mm])
   ;; - (mm/measure (your-expression))
-  :measure {:extra-deps {com.clojure-goes-fast/clj-memory-meter {:mvn/version "RELEASE"}}}
+  :measure  {:extra-deps {com.clojure-goes-fast/clj-memory-meter {:mvn/version "RELEASE"}}}
   ;; - see https://github.com/Olical/depot
   :outdated {:extra-deps {olical/depot {:mvn/version "RELEASE"}}
-             :main-opts ["-m" "depot.outdated.main"]}
+             :main-opts  ["-m" "depot.outdated.main"]}
 
   ;; - start a Socket REPL on port 50505:
   :socket {:jvm-opts ["-Dclojure.server.repl={:port,50505,:accept,clojure.core.server/repl}"]}
   ;; - start a Socket pREPL on port 40404:
-  :prepl {:jvm-opts ["-Dclojure.server.repl={:port,40404,:accept,clojure.core.server/io-prepl}"]}
+  :prepl  {:jvm-opts ["-Dclojure.server.repl={:port,40404,:accept,clojure.core.server/io-prepl}"]}
   ;; - start a nREPL on port 7888
-  :nrepl {:extra-deps {nrepl {:mvn/version "0.6.0"}}
-          :main-opts  ["-m" "nrepl.cmdline" "-p" "7888"]}
+  :nrepl  {:extra-deps {nrepl/nrepl {:mvn/version "0.6.0"}}
+           :main-opts  ["-m" "nrepl.cmdline" "-p" "7888"]}
+  :rebl   {:extra-deps {com.cognitect/rebl          {:mvn/version "0.9.242"}
+                        org.openjfx/javafx-fxml     {:mvn/version "15-ea+6"}
+                        org.openjfx/javafx-controls {:mvn/version "15-ea+6"}
+                        org.openjfx/javafx-swing    {:mvn/version "15-ea+6"}
+                        org.openjfx/javafx-base     {:mvn/version "15-ea+6"}
+                        org.openjfx/javafx-web      {:mvn/version "15-ea+6"}}
+           :main-opts  ["-m" "cognitect.rebl"]}
   ;; - see https://github.com/bhauman/rebel-readline
   ;; - start a Rebel Readline REPL:
-  :rebel {:extra-deps {com.bhauman/rebel-readline {:mvn/version "RELEASE"}}
-          :main-opts ["-m" "rebel-readline.main"]}
-  :graph {:extra-deps {org.clojure/tools.deps.graph {:git/url "https://github.com/clojure/tools.deps.graph.git"
-                                                     :sha "b9d3359b901a1014f60982d68c0673d55b4b1670"
-                                                     :tag "tools.deps.graph-0.1.14"}}
-          :main-opts ["-m" "clojure.tools.deps.graph"]}}}
+  :rebel  {:extra-deps {com.bhauman/rebel-readline {:mvn/version "RELEASE"}}
+           :main-opts  ["-m" "rebel-readline.main"]}
+  :graph  {:extra-deps {org.clojure/tools.deps.graph {:git/url "https://github.com/clojure/tools.deps.graph.git"
+                                                      :sha     "b9d3359b901a1014f60982d68c0673d55b4b1670"
+                                                      :tag     "tools.deps.graph-0.1.14"}}
+           :main-opts  ["-m" "clojure.tools.deps.graph"]}}}
