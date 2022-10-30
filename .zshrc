@@ -7,7 +7,7 @@ DISABLE_AUTO_UPDATE=true
 
 plugins=(
     archlinux command-not-found colored-man-pages colorize debian
-    django docker docker-compose history-substring-search git
+    docker docker-compose history-substring-search git
     git-extras jump pass python pj virtualenv supervisor systemadmin
     tmux tmuxinator
 
