@@ -9,7 +9,7 @@ plugins=(
     archlinux command-not-found colored-man-pages colorize debian
     docker docker-compose history-substring-search git
     git-extras jump pass python pj virtualenv supervisor systemadmin
-    tmux tmuxinator
+    tmux
 
 )
 
@@ -87,22 +87,12 @@ alias serve='python3 -m http.server'
 alias top=htop
 alias duf='du -sh *'
 alias psf='ps -aux | grep'
-alias rm='rm -i'
-alias cp='cp -i'
-alias mv='mv -i'
 alias reload!='. ~/.zshrc'
 
 # Environment & Path
 # ------------------------------------------------------------------------------
 
 [ -f "$HOME/.profile" ] && source ~/.profile
-
-
-# Random Tools
-#-------------------------------------------------------------------------------
-
-# added by travis gem
-[ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
 
 
 # Local Configuration
@@ -115,4 +105,3 @@ then
 fi
 
 autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/bin/terraform terraform
