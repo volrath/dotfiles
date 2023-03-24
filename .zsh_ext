@@ -1,0 +1,27 @@
+# Lately I've been using Manjaro's ZSH config, so these are only a few
+# extensions to that. This file needs to be included manually in Manjaro's
+# default `.zshrc`, like so:
+#
+# if [[ -e ~/.zsh_ext ]]; then
+#     source ~/.zsh_ext
+# fi
+
+
+alias reload!='. ~/.zshrc'
+
+vterm_printf() {
+    if [ -n "$TMUX" ] && ([ "${TERM%%-*}" = "tmux" ] || [ "${TERM%%-*}" = "screen" ]); then
+        # Tell tmux to pass the escape sequences through
+        printf "\ePtmux;\e\e]%s\007\e\\" "$1"
+    elif [ "${TERM%%-*}" = "screen" ]; then
+        # GNU screen (screen, screen-256color, screen-256color-bce)
+        printf "\eP\e]%s\007\e\\" "$1"
+    else
+        printf "\e]%s\e\\" "$1"
+    fi
+}
+
+if [[ -a ~/.localrc ]]
+then
+    source ~/.localrc
+fi
