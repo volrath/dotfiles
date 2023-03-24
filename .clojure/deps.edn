@@ -9,14 +9,19 @@
   ;; - see https://github.com/hugoduncan/criterium/
   ;; - (require '[criterium.core :refer [bench]])
   ;; - (bench (your-expression))
-  :bench    {:extra-deps {criterium/criterium {:mvn/version "RELEASE"}}}
+  :bench   {:extra-deps {criterium/criterium {:mvn/version "RELEASE"}}}
   ;; - see https://github.com/clojure-goes-fast/clj-memory-meter
   ;; - (require '[clj-memory-meter.core :as mm])
   ;; - (mm/measure (your-expression))
-  :measure  {:extra-deps {com.clojure-goes-fast/clj-memory-meter {:mvn/version "RELEASE"}}}
+  :measure {:extra-deps {com.clojure-goes-fast/clj-memory-meter {:mvn/version "RELEASE"}}}
+
+  ;; Outdated Deps
   ;; - see https://github.com/Olical/depot
   :outdated {:extra-deps {olical/depot {:mvn/version "RELEASE"}}
              :main-opts  ["-m" "depot.outdated.main"]}
+  :antq     {;; Note that it is `:deps`, not `:extra-deps`
+             :deps      {com.github.liquidz/antq {:mvn/version "RELEASE"}}
+             :main-opts ["-m" "antq.core"]}
 
   ;; - start a Socket REPL on port 50505:
   :socket     {:jvm-opts ["-Dclojure.server.repl={:port,50505,:accept,clojure.core.server/repl}"]}
