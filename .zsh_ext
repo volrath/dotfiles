@@ -8,7 +8,10 @@
 
 
 alias reload!='. ~/.zshrc'
+export EDITOR="emacsclient -r -a ''"
 
+# Vterm <-> Emacs customizations
+# -----------------------------------------------------------------------------
 vterm_printf() {
     if [ -n "$TMUX" ] && ([ "${TERM%%-*}" = "tmux" ] || [ "${TERM%%-*}" = "screen" ]); then
         # Tell tmux to pass the escape sequences through
@@ -20,6 +23,25 @@ vterm_printf() {
         printf "\e]%s\e\\" "$1"
     fi
 }
+
+vterm_prompt_end() {
+    vterm_printf "51;A$(whoami)@$(hostname):$(pwd)"
+}
+setopt PROMPT_SUBST
+PROMPT=$PROMPT'%{$(vterm_prompt_end)%}'
+
+# Babashka tab completion
+# -----------------------------------------------------------------------------
+
+_bb_tasks() {
+    local matches=(`bb tasks |tail -n +3 |cut -f1 -d ' '`)
+    compadd -a matches
+    _files # autocomplete filenames as well
+}
+compdef _bb_tasks bb
+
+# Load local configuration
+# -----------------------------------------------------------------------------
 
 if [[ -a ~/.localrc ]]
 then
